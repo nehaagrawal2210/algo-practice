@@ -16,9 +16,10 @@ public class SherlockAndCost extends TestCase{
     {
         int[][] dp = new int[b.length+1][2]; //1 for choosing 1 other for choosing b[i]
         for (int i = 0; i <= b.length; i++) {
-            dp[i+1][0] =  Math.max(dp[i][0],)      //choose 1 for b[i]
+            dp[i+1][0] =  Math.max(dp[i][0],1)     ; //choose 1 for b[i]
 
         }
+        return 0;
     }
 
     public static void main(String[] args) throws IOException{
@@ -48,4 +49,3 @@ public class SherlockAndCost extends TestCase{
     }
 }
 
-1 12 1 1 17
