@@ -25,7 +25,7 @@ public class SquirrelSimulation extends TestCase {
      * @return Distance between the passed positions
      */
     public int getDistance(int[] a, int[] b)
-    {
+    {   
         return Math.abs(a[0]-b[0]) + Math.abs(a[1]-b[1]);
     }
 
