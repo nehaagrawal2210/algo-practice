@@ -2,37 +2,16 @@ package geometric;
 
 import junit.framework.TestCase;
 
+import static geometric.GeometricUtil.getOrientation;
+import static geometric.GeometricUtil.onSegment;
+
 /**
  * Created by neagrawa on 5/15/17.
  * http://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
  */
 public class IntersectingLineSegments extends TestCase {
 
-    class Point{
-        int x;
-        int y;
-        public Point(int x,int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-    }
 
-    public int getOrientation(Point p,Point q,Point r)
-    {
-        int value = (q.y-p.y)*(r.x-q.x) - (r.y-q.y)*(q.x-p.x);
-        if(value == 0) return 0; //collinear
-        if(value<0) return -1; //counterclockwise
-        else return 1; //clockwise
-    }
-
-    public boolean onSegment(Point p,Point q,Point r) //checks if q lies on segment PR
-    {
-        if(q.x<= Math.max(p.x,r.x) && q.x>=Math.min(p.x,r.x)
-                && q.y<= Math.max(p.y,r.y) && q.y>=Math.min(p.y,r.y))
-            return true;
-        return false;
-    }
 
     public boolean doesIntersect(Point p1, Point q1, Point p2, Point q2)
     {
