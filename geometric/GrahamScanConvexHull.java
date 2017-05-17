@@ -54,7 +54,7 @@ public class GrahamScanConvexHull extends TestCase{
         //process remaining m-3 points
         for (int i = 3; i < m; i++) {
             //keep removing till the angle is a non left turn
-            while (!s.isEmpty() && GeometricUtil.getOrientation(getNextToTop(s),s.peek(),points[i])!=-1)
+            while (!s.isEmpty() && GeometricUtil.getOrientation(GeometricUtil.getNextToTop(s),s.peek(),points[i])!=-1)
                 s.pop();
             s.push(points[i]);
         }
@@ -62,14 +62,6 @@ public class GrahamScanConvexHull extends TestCase{
         return new ArrayList<>(s);
     }
 
-    public Point getNextToTop(Stack<Point> s)
-    {
-        Point top = s.peek();
-        s.pop();
-        Point nextTop = s.peek();
-        s.push(top);
-        return nextTop;
-    }
 
     public void swap(Point[] a,int i,int j)
     {

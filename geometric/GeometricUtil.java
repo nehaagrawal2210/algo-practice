@@ -1,5 +1,7 @@
 package geometric;
 
+import java.util.Stack;
+
 /**
  * Created by neagrawa on 5/15/17.
  */
@@ -20,6 +22,11 @@ public class GeometricUtil {
         return false;
     }
 
+    public static int getSquareDist(Point p,Point q)
+    {
+        return (p.x-q.x)*(p.x-q.x)+(p.y-q.y)*(p.y-q.y);
+    }
+
     public static Point[] getPoints(int[][] points)
     {
         Point[] pointList = new Point[points.length];
@@ -27,5 +34,14 @@ public class GeometricUtil {
             pointList[i] = new Point(points[i][0],points[i][1]);
         }
         return pointList;
+    }
+
+    public static Point getNextToTop(Stack<Point> s)
+    {
+        Point top = s.peek();
+        s.pop();
+        Point nextTop = s.peek();
+        s.push(top);
+        return nextTop;
     }
 }
