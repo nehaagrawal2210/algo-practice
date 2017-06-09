@@ -1,6 +1,6 @@
 package dp;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Created by neha on 1/20/2017.
@@ -10,7 +10,7 @@ public class LongestIncreasingSubsequence {
 
     public int lis(int a[])
     {
-        int n=a.length;
+        int n=a.length,max=0;
         int l[]=new int[n];
 
         for (int i = 0; i < n; i++) {
@@ -24,13 +24,7 @@ public class LongestIncreasingSubsequence {
                     l[i]=l[j]+1;
                 }
             }
-        }
-
-        int max=l[0];
-        //pick max of all lengths
-        for (int i = 1; i < n; i++) {
-            if(l[i]>max)
-                max=l[i];
+            max = Math.max(max,l[i]);
         }
         return max;
     }
@@ -228,6 +222,6 @@ public class LongestIncreasingSubsequence {
         new LongestIncreasingSubsequence().printLISAsString(k);
         new LongestIncreasingSubsequence().printLIS(k);
         System.out.println("Length of LIS is " + new LongestIncreasingSubsequence().lisLength( k ));
-        new LongestIncreasingSubsequence().printLisLogn(k);
+        new LongestIncreasingSubsequence().printLisLogn(arr);
     }
 }

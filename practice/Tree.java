@@ -276,6 +276,35 @@ public class Tree extends TestCase{
         return false;
     }
 
+    public void serialize(TreeNode root, StringBuffer s)
+    {
+        if(root == null) {
+            s.append('$');
+            return;
+        }
+        s.append(root.val);
+        serialize(root.left,s);
+        serialize(root.right,s);
+    }
+
+    class Index{
+        int index;
+
+        public Index(int index) {
+            this.index = index;
+        }
+    }
+    public TreeNode deserialize(String s, Index index)
+    {
+        char c = s.charAt(index.index);
+        index.index++;
+        if(index.index>=s.length() || c=='$') return null;
+        TreeNode root = new TreeNode(Character.getNumericValue(c));
+        root.left = deserialize(s,index);
+        root.right = deserialize(s,index);
+        return root;
+    }
+
     public void testTraversal()
     {
         TreeNode root = new TreeNode(1);
@@ -312,7 +341,14 @@ public class Tree extends TestCase{
 //        printKDistanceFromLeafNode(root,1);
 //        int[] path = new int[1000];
 //        printPath(root,path,0);
-        System.out.println(rootToLeafPathSum(root,0,9));
+//        System.out.println(rootToLeafPathSum(root,0,9));
+        StringBuffer s= new StringBuffer("");
+        serialize(root,s);
+        System.out.println(s.toString());
+        TreeNode tree = deserialize(s.toString(),new Index(0));
+        if(tree == null)
+            System.out.println("Null");
+        root.preOrder(tree);
     }
 
 }

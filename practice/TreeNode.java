@@ -20,4 +20,28 @@ public class TreeNode {
         if(right!=null) res+=", "+right.val;
         return res;
     }
+
+    public void postOrder(TreeNode root)
+    {
+        if(root == null) return;
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.val+", ");
+    }
+
+    public void inorder(TreeNode root)
+    {
+        if(root==null) return;
+        inorder(root.left);
+        System.out.print(root.val+", ");
+        inorder(root.right);
+    }
+
+    public void preOrder(TreeNode root)
+    {
+        if(root == null) return;
+        System.out.print(root.val+", ");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
 }
