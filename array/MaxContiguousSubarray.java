@@ -110,27 +110,6 @@ public class MaxContiguousSubarray {
         return maxSoFar;
     }
 
-    public int kadane(int a[])
-    {
-        int maxEndingHere=0,maxSoFar=Integer.MIN_VALUE,start=0,end=0,s=0;
-        for (int i = 0; i < a.length; i++) {
-            maxEndingHere+=a[i];
-            if(maxSoFar<maxEndingHere)
-            {
-                maxSoFar = maxEndingHere;
-                start=s;
-                end = i;
-            }
-            if(maxEndingHere<0)
-            {
-                maxEndingHere = 0;
-                s = i+1;
-            }
-        }
-        System.out.println("Start= "+start+" End= "+end);
-        return maxSoFar;
-    }
-
     int maxSubArraySum(int a[])
     {
         int max_so_far = a[0];

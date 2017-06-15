@@ -33,10 +33,8 @@ public class EditDist {
 
         for (int i = 0; i <= m; i++) {
             for (int j = 0; j <= n; j++) {
-                if(i==0)
-                    dist[i][j]=j;
-                else if(j==0)
-                    dist[i][j]=i;
+                if(i==0 || j==0)
+                    dist[i][j]=i+j;
                 else if(s1.charAt(i-1)==s2.charAt(j-1))
                 {
                     //nothing to do

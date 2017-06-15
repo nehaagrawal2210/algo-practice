@@ -10,16 +10,16 @@ public class LongestIncreasingSubsequence {
 
     public int lis(int a[])
     {
-        int n=a.length,max=0;
-        int l[]=new int[n];
+        int max=0,i,j;
+        int l[]=new int[a.length];
 
-        for (int i = 0; i < n; i++) {
+        for (i = 0; i < a.length; i++) {
             l[i]=1;
         }
 
-        for (int i = 0; i <n; i++) {
-            for (int j = 0; j < i; j++) {
-                if(a[j]<a[i] && l[i]<l[j]+1)
+        for (i = 1; i <a.length; i++) {
+            for (j = 0; j < i; j++) {
+                if(a[i]>a[j] && l[i]<l[j]+1)
                 {
                     l[i]=l[j]+1;
                 }
