@@ -22,7 +22,7 @@ public class PetrolPumpTour extends TestCase{
 
     public int getStartingPoint(PetrolPump[] petrolPump)
     {
-        int len = petrolPump.length,start=0,end=1;
+        int len = petrolPump.length,start=0;
         int currPetrol=0,totalPetrol=0,totalDist=0;
         for (int i = 0; i < len; i++) {
             totalDist+=petrolPump[i].dist;

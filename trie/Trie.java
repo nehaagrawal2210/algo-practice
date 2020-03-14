@@ -1,7 +1,8 @@
 package trie;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+
+import junit.framework.TestCase;
 
 /**
  * Created by neha on 2/16/2017.
