@@ -24,6 +24,11 @@ public class Graph {
     public void addEdge(int src, int dest) {
         Set<Integer> srcList = adjacencyList[src];
         srcList.add(dest);
+    }
+
+    public void addBidirectionalEdge(int src, int dest) {
+        Set<Integer> srcList = adjacencyList[src];
+        srcList.add(dest);
         Set<Integer> destList = adjacencyList[dest];
         destList.add(src);
     }
